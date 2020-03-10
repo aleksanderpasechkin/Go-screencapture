@@ -14,7 +14,7 @@ import (
 
 var screenWidth int
 var screenHeight int
-var resizeWidthit int
+var resizeWidth int
 var resizeHeight int
 var webRTC *webrtc.WebRTC
 
