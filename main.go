@@ -7,14 +7,14 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/aleksanderpasechkin/Go-screencapture/screenshot"
+	"github.com/aleksanderpasechkin/Go-screencapture/webrtc"
 	"github.com/gorilla/mux"
-	"github.com/poi5305/go-yuv2webRTC/screenshot"
-	"github.com/poi5305/go-yuv2webRTC/webrtc"
 )
 
 var screenWidth int
 var screenHeight int
-var resizeWidth int
+var resizeWidthit int
 var resizeHeight int
 var webRTC *webrtc.WebRTC
 
