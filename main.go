@@ -28,20 +28,18 @@ func init() {
 
 func main() {
 	fmt.Println("http://localhost:8000")
-
 	router := mux.NewRouter()
 	router.HandleFunc("/", getWeb).Methods("GET")
 	router.HandleFunc("/session", postSession).Methods("POST")
-
-	http.ListenAndServe(":8000", router)
+	log.Fatal(http.ListenAndServe(":8000", router))
 }
 
-func getWeb(w http.ResponseWriter, r *http.Request) {
+func getWeb(w http.ResponseWriter, _ *http.Request) {
 	bs, err := ioutil.ReadFile("./index.html")
 	if err != nil {
 		log.Fatal(err)
 	}
-	w.Write(bs)
+	_, _ = w.Write(bs)
 }
 
 func postSession(w http.ResponseWriter, r *http.Request) {
@@ -49,14 +47,14 @@ func postSession(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	r.Body.Close()
+	_ = r.Body.Close()
 
 	localSession, err := webRTC.StartClient(string(bs), resizeWidth, resizeHeight)
 	if err != nil {
 		log.Fatalln(err)
 	}
 
-	w.Write([]byte(localSession))
+	_, _ = w.Write([]byte(localSession))
 }
 
 func screenshotLoop() {
