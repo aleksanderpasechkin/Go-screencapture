@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	vpxEncoder "github.com/aleksanderpasechkin/Go-screencapture/vpx-encoder"
+	vpxEncoder "github.com/aleksanderpasechkin/Go-screencapture/vpxencoder"
 	"github.com/pion/webrtc/v2"
 	"github.com/pion/webrtc/v2/pkg/media"
 )
